@@ -10,6 +10,6 @@ class Quotes extends Model
     protected $table = 'quotelist';
     public $timestamps = false; // van-e created_at és updated_at mező a táblában
     protected $fillable = [
-        'quote', 'category', 'quoted' // <-- ezek a tábla mezői
+        'quote', 'category', 'quoted', 'source' // <-- ezek a tábla mezői
     ];
 }
