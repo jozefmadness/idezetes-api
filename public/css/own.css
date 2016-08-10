@@ -1,0 +1,116 @@
+/* line 1, ../sass/sajat.scss */
+body {
+    /*background-image: url("http://i.imgur.com/o63oRtB.jpeg");
+    background-image: url("http://i.imgur.com/o63oRtBg.jpeg");
+    background-image: url("http://i.imgur.com/OLl3F2E.png");*/
+    background-image: url(../riverrock.jpg);
+    font-family: 'Lato';
+    color:white;
+    background-size: 100%;
+}
+
+/* line 5, ../sass/sajat.scss */
+.navbar-brand {
+    color: white !important;
+    font-size: 18px !important;
+
+}
+
+/* line 9, ../sass/sajat.scss */
+.piros {
+    color: red !important;
+}
+
+/* line 13, ../sass/sajat.scss */
+.dropdown-menu {
+    background-color: #009788 !important;
+    color:white !important;
+}
+
+/* line 16, ../sass/sajat.scss */
+.feherszurke {
+    color: white !important;
+    background-color: lightgrey !important;
+}
+
+/* line 20, ../sass/sajat.scss */
+.panel-heading {
+    background-color: #009788 !important;
+    color: #ffffff !important;
+}
+
+/* line 24, ../sass/sajat.scss */
+.panel-body {
+    background-color: #22b9aa !important;
+    color: lightgray !important;
+}
+
+/* line 28, ../sass/sajat.scss */
+.form-control {
+    width: 300px !important;
+}
+
+/* line 31, ../sass/sajat.scss */
+.margin {
+    margin-bottom: 20px !important;
+}
+
+.vilagoskek{
+    color: white;
+    background-color: darkcyan;
+}
+
+.navbar-header{
+    background-color: #008779 !important;
+    color: #009788 !important;
+    font-size: 12px ;
+    font-family: Verdana;
+
+}
+
+
+.navbar-nav{
+    background-color: #008779 !important;
+}
+
+.szurke{
+    color: lightgray !important;
+}
+
+.navbar-inverse{
+    background-color: #008779 !important;
+    font-size: 18px;
+}
+
+.navbar{
+    min-height: 10px !important;
+}
+
+.navbar-nav > li > a, .navbar-brand {
+    padding-top:4px !important;
+    padding-bottom:0 !important;
+    height: 30px !important;
+}
+
+.navbar-default{
+    background-color: #628DB6 !important;
+    font-size: x-large;
+    color: whitesmoke;
+}
+
+
+.tableprofile{
+
+    width:90% !important;
+    padding-top: 20px;
+    text-align: left;
+    border: 1px lightgray !important;
+
+}
+tr:hover{background-color: #7276ff}
+input{margin-right: auto;}
+
+.adminfel{
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
