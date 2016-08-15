@@ -17,6 +17,9 @@ Route::get('/welcome', function () {
     return view('welcome');
 });
 Route::get('/quote','QuotesController@showquotes');
+Route::get('/quotemanage','QuotesController@quotemanage');
+Route::post('/addquoted','QuotesController@addquoted');
+Route::post('/addquotes','QuotesController@addquotes');
 Route::get('{all}', function ($all) {
     return Redirect::to('/');
 })->where('all', '.*');

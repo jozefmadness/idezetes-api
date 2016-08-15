@@ -7,6 +7,8 @@ use Validator;
 use Config;
 use App\quoted;
 use App\quotes;
+use App\category;
+use App\sourcelist;
 use Dingo\Api\Routing\Helpers;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -18,6 +20,8 @@ class QuoteController extends Controller
     public function getQbyname(Request $name){
         $quotes = quotes::all();
         $quoted = quoted::all();
+        $source = sourcelist::all();
+        $category = category::all();
         $array = array();
         $id = -1;
         foreach($quoted as $item){
@@ -36,12 +40,24 @@ class QuoteController extends Controller
                     $item->quoted=$qitem->name;
                 }
             }
+            foreach($category as $qitem){
+                if($qitem->id==$item->category){
+                    $item->category=$qitem->name;
+                }
+            }
+            foreach($source as $qitem){
+                if($qitem->id==$item->source){
+                    $item->source=$qitem->name;
+                }
+            }
         }
         return $array;
     }
     public function randomquote(){
         $quotes = quotes::all();
         $quoted = quoted::all();
+        $source = sourcelist::all();
+        $category = category::all();
         $n = count($quotes);
         $quote = $quotes[rand(0,$n-1)];
         foreach($quoted as $item){
@@ -49,11 +65,23 @@ class QuoteController extends Controller
                 $quote->quoted=$item->name;
             }
         }
+        foreach($category as $item){
+            if($item->id==$quote->category){
+                $quote->category=$item->name;
+            }
+        }
+        foreach($source as $item){
+            if($item->id==$quote->source){
+                $quote->source=$item->name;
+            }
+        }
         return $quote;
     }
     public function getBySource(Request $source){
         $quotes = quotes::all();
         $quoted = quoted::all();
+        $source = sourcelist::all();
+        $category = category::all();
         $array = array();
         foreach($quotes as $item){
             if($item->source==$source->source){
@@ -66,11 +94,23 @@ class QuoteController extends Controller
                     $item->quoted=$qitem->name;
                 }
             }
+            foreach($category as $qitem){
+                if($qitem->id==$item->category){
+                    $item->category=$qitem->name;
+                }
+            }
+            foreach($source as $qitem){
+                if($qitem->id==$item->source){
+                    $item->source=$qitem->name;
+                }
+            }
         }
         return $array;
     }
     public function getQbycategory(Request $category){
         $quotes = quotes::all();
+        $source = sourcelist::all();
+        $category = category::all();
         $array = array();
         foreach($quotes as $item){
             if($item->category==$category->category){
@@ -84,6 +124,16 @@ class QuoteController extends Controller
                     $item->quoted=$qitem->name;
                 }
             }
+            foreach($category as $qitem){
+                if($qitem->id==$item->category){
+                    $item->category=$qitem->name;
+                }
+            }
+            foreach($source as $qitem){
+                if($qitem->id==$item->source){
+                    $item->source=$qitem->name;
+                }
+            }
         }
         return $array;
     }
@@ -93,10 +143,22 @@ class QuoteController extends Controller
     public function getAllQuote(){
         $quoted = quoted::all();
         $quotes = quotes::all();
+        $source = sourcelist::all();
+        $category = category::all();
         foreach($quotes as $item){
             foreach($quoted as $qitem){
                 if($qitem->id==$item->quoted){
                     $item->quoted=$qitem->name;
+                }
+            }
+            foreach($category as $qitem){
+                if($qitem->id==$item->category){
+                    $item->category=$qitem->name;
+                }
+            }
+            foreach($source as $qitem){
+                if($qitem->id==$item->source){
+                    $item->source=$qitem->name;
                 }
             }
         }
