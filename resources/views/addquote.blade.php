@@ -6,6 +6,7 @@
             <div class="panel-heading" style="border: none">AddQuotes</div>
             <div class="panel-body">
                 <form method="post" action="addguoted" style="color: #FFFFFF">
+                    {{ csrf_field() }}
                     <div class="label">AddQuoted</div>
                     <p/>
                     <label>Name</label>
@@ -14,6 +15,7 @@
                 </form>
                 <p/>
                 <form method="post" action="addguotes" style="color: #FFFFFF">
+                    {{ csrf_field() }}
                     <div class="label">AddQuotes</div>
                     <p/>
                     <label>Quote</label>
@@ -25,15 +27,30 @@
                         @endforeach
                     </select>
                     <label>Category</label>
-                    <input type="text" class="form-control" name="Category">
+                    <select class="form-control" name="category">
+                        @foreach($category as $item)
+                            <option value="{{$item->id}}">{{$item->name}}</option>
+                        @endforeach
+                    </select>
                     <label>Source</label>
-                    <input type="text" class="form-control" name="Source">
+                    <select class="form-control" name="source">
+                        @foreach($source as $item)
+                            <option value="{{$item->id}}">{{$item->name}}</option>
+                        @endforeach
+                    </select>
                     <button type="submit" class="btn btn-primary" style="background-color: #008779;border-color: #008779">Save</button>
                 </form>
                 <p/>
-                <table style="color: #FFFFFF;border-color: #008779;background-color: #008779" border="1">
+                <table style="color: #FFFFFF;border-color: #008779;background-color: #008779;border-collapse: separate;border-spacing: 2px" border="1">
+                    <tr>
+                        <td style="color: #FFFFFF;border-color: #008779;background-color: #008779;font-weight: bold">ID</td>
+                        <td style="color: #FFFFFF;border-color: #008779;background-color: #008779;font-weight: bold">List of Quoted</td>
+                    </tr>
                     @foreach($quoted as $item)
                         <tr>
+                            <td style="color: #FFFFFF;border-color: #008779;background-color: #008779">
+                                {{$item->id}}
+                            </td>
                             <td style="color: #FFFFFF;border-color: #008779;background-color: #008779">
                                 {{$item->name}}
                             </td>
@@ -43,21 +60,31 @@
                 <p/>
                 <table style="color: #FFFFFF;border-color: #008779;background-color: #008779;border-collapse: separate;border-spacing: 2px" border="1">
                     <tr>
-                        <td style="color: #FFFFFF;border-color: #008779;background-color: #008779">Quote</td>
-                        <td style="color: #FFFFFF;border-color: #008779;background-color: #008779">Quoted</td>
-                        <td style="color: #FFFFFF;border-color: #008779;background-color: #008779">Category</td>
-                        <td style="color: #FFFFFF;border-color: #008779;background-color: #008779">Source</td>
+                        <td style="color: #FFFFFF;border-color: #008779;background-color: #008779;font-weight: bold">ID</td>
+                        <td style="color: #FFFFFF;border-color: #008779;background-color: #008779;font-weight: bold">Quote</td>
+                        <td style="color: #FFFFFF;border-color: #008779;background-color: #008779;font-weight: bold">Quoted</td>
+                        <td style="color: #FFFFFF;border-color: #008779;background-color: #008779;font-weight: bold">Category</td>
+                        <td style="color: #FFFFFF;border-color: #008779;background-color: #008779;font-weight: bold">Source</td>
                     </tr>
                     @foreach($quotes as $item)
                         <tr>
+                            <td style="color: #FFFFFF;border-color: #008779;background-color: #008779">{{$item->id}}</td>
                             <td style="color: #FFFFFF;border-color: #008779;background-color: #008779">{{$item->quote}}</td>
-                            <td style="color: #FFFFFF;border-color: #008779;background-color: #008779">{{$item->category}}</td>
                             @foreach($quoted as $qitem)
                                 @if($item->quoted==$qitem->id)
                                     <td style="color: #FFFFFF;border-color: #008779;background-color: #008779">{{$qitem->name}}</td>
                                 @endif
                             @endforeach
-                            <td style="color: #FFFFFF;border-color: #008779;background-color: #008779">{{$item->source}}</td>
+                            @foreach($category as $qitem)
+                                @if($item->category==$qitem->id)
+                                    <td style="color: #FFFFFF;border-color: #008779;background-color: #008779">{{$qitem->name}}</td>
+                                @endif
+                            @endforeach
+                            @foreach($source as $qitem)
+                                @if($item->source==$qitem->id)
+                                    <td style="color: #FFFFFF;border-color: #008779;background-color: #008779">{{$qitem->name}}</td>
+                                @endif
+                            @endforeach
                         </tr>
                     @endforeach
                 </table>

@@ -5,21 +5,31 @@
     <div class="panel panel-primary" style="width: 100%">
         <div class="panel-heading" style="border: none">Quotes</div>
         <div class="panel-body">
-            <table cellspacing="0" cellpadding="1" border="1" style="width: 100%; color: #FFFFFF">
-                <tr style="font-weight: bold">
-                    <td>Quote</td>
-                    <td>Quoted</td>
-                    <td>Category</td>
+            <table style="color: #FFFFFF;border-color: #008779;background-color: #008779;border-collapse: separate;border-spacing: 2px" border="1">
+                <tr>
+                    <td style="color: #FFFFFF;border-color: #008779;background-color: #008779;font-weight: bold">Quote</td>
+                    <td style="color: #FFFFFF;border-color: #008779;background-color: #008779;font-weight: bold">Quoted</td>
+                    <td style="color: #FFFFFF;border-color: #008779;background-color: #008779;font-weight: bold">Category</td>
+                    <td style="color: #FFFFFF;border-color: #008779;background-color: #008779;font-weight: bold">Source</td>
                 </tr>
                 @foreach($quotes as $item)
                     <tr>
-                        <td>{{$item->quote}}</td>
+                        <td style="color: #FFFFFF;border-color: #008779;background-color: #008779">{{$item->quote}}</td>
                         @foreach($quoted as $qitem)
                             @if($item->quoted==$qitem->id)
-                                <td>{{$qitem->name}}</td>
+                                <td style="color: #FFFFFF;border-color: #008779;background-color: #008779">{{$qitem->name}}</td>
                             @endif
                         @endforeach
-                        <td>{{$item->category}}</td>
+                        @foreach($category as $qitem)
+                            @if($item->category==$qitem->id)
+                                <td style="color: #FFFFFF;border-color: #008779;background-color: #008779">{{$qitem->name}}</td>
+                            @endif
+                        @endforeach
+                        @foreach($source as $qitem)
+                            @if($item->source==$qitem->id)
+                                <td style="color: #FFFFFF;border-color: #008779;background-color: #008779">{{$qitem->name}}</td>
+                            @endif
+                        @endforeach
                     </tr>
                 @endforeach
             </table>

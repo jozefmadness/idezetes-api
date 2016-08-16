@@ -11,10 +11,10 @@
 |
 */
 Route::get('/', function () {
-    return redirect('welcome');
+    return redirect('/welcome');
 });
 Route::get('/welcome', function () {
-    return view('welcome');
+    return view('/welcome');
 });
 Route::get('/quote','QuotesController@showquotes');
 Route::get('/quotemanage','QuotesController@quotemanage');

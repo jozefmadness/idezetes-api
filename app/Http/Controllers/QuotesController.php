@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\quoted;
 use App\quotes;
+use App\sourcelist;
+use App\category;
 use Dingo\Api\Http\Request;
 
 class QuotesController extends Controller
@@ -13,17 +15,21 @@ class QuotesController extends Controller
     {
         $quoted = Quoted::all();
         $quotes = Quotes::all();
-        return view('quote',['quoted' => $quoted, 'quotes' => $quotes]);
+        $source = sourcelist::all();
+        $category = category::all();
+        return view('quote',['quoted' => $quoted, 'quotes' => $quotes, 'source' => $source, 'category' => $category]);
     }
     public function quotemanage()
     {
         $quoted = Quoted::all();
         $quotes = Quotes::all();
-        return view('addquote',['quoted' => $quoted, 'quotes' => $quotes]);
+        $source = sourcelist::all();
+        $category = category::all();
+        return view('addquote',['quoted' => $quoted, 'quotes' => $quotes, 'source' => $source, 'category' => $category]);
     }
     public function addquoted(Request $request)
     {
-        $data = new quoted();
+        $data = new Quoted();
         $data->name = $request->name;
         $data->save();
         $msg = "sikeresen hozzáadva";
