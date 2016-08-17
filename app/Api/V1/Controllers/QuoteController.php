@@ -41,6 +41,15 @@ class QuoteController extends Controller
         }
         return $quote;
     }
+    public function randomquoteID(){
+        $quotes = quotes::all();
+        $quoted = quoted::all();
+        $source = sourcelist::all();
+        $category = category::all();
+        $n = count($quotes);
+        $quote = $quotes[rand(0,$n-1)];
+        return $quote;
+    }
     public function getQbyname(Request $name){
         $quotes = quotes::all();
         $quoted = quoted::all();
@@ -229,6 +238,12 @@ class QuoteController extends Controller
     }
     public function getAllQuoted(){
         return $quoted = quoted::all()->toArray();
+    }
+    public function getAllCategory(){
+        return $category = category::all()->toArray();
+    }
+    public function getAllSource(){
+        return $source = sourcelist::all()->toArray();
     }
     public function addQuote(Request $nquote){
         $new = new quotes();

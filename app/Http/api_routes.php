@@ -21,7 +21,10 @@ $api->version('v1', function ($api) {
 		$api->get('user/getquoted','App\Api\V1\Controllers\QuoteController@getQuoted');
 		$api->get('user/getallquote','App\Api\V1\Controllers\QuoteController@getAllQuote');
 		$api->get('user/getallquoted','App\Api\V1\Controllers\QuoteController@getAllQuoted');
+		$api->get('user/getallsource','App\Api\V1\Controllers\QuoteController@getAllSource');
+		$api->get('user/getallcategory','App\Api\V1\Controllers\QuoteController@getAllCategory');
 		$api->get('user/randomquote','App\Api\V1\Controllers\QuoteController@randomquote');
+		$api->get('user/randomquoteid','App\Api\V1\Controllers\QuoteController@randomquoteID');
 	});
 	// example of protected route
 	$api->get('protected', ['middleware' => ['api.auth'], function () {		
