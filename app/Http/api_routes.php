@@ -18,13 +18,13 @@ $api->version('v1', function ($api) {
 		$api->post('user/getbysourceid','App\Api\V1\Controllers\QuoteController@getBySourceID');
 		$api->post('user/addquoted', 'App\Api\V1\Controllers\QuoteController@AddQuoted');
 		$api->post('user/addquote', 'App\Api\V1\Controllers\QuoteController@AddQuote');
-		$api->get('user/getquoted','App\Api\V1\Controllers\QuoteController@getQuoted');
-		$api->get('user/getallquote','App\Api\V1\Controllers\QuoteController@getAllQuote');
-		$api->get('user/getallquoted','App\Api\V1\Controllers\QuoteController@getAllQuoted');
-		$api->get('user/getallsource','App\Api\V1\Controllers\QuoteController@getAllSource');
-		$api->get('user/getallcategory','App\Api\V1\Controllers\QuoteController@getAllCategory');
-		$api->get('user/randomquote','App\Api\V1\Controllers\QuoteController@randomquote');
-		$api->get('user/randomquoteid','App\Api\V1\Controllers\QuoteController@randomquoteID');
+		$api->post('user/getquoted','App\Api\V1\Controllers\QuoteController@getQuoted');
+		$api->post('user/getallquote','App\Api\V1\Controllers\QuoteController@getAllQuote');
+		$api->post('user/getallquoted','App\Api\V1\Controllers\QuoteController@getAllQuoted');
+		$api->post('user/getallsource','App\Api\V1\Controllers\QuoteController@getAllSource');
+		$api->post('user/getallcategory','App\Api\V1\Controllers\QuoteController@getAllCategory');
+		$api->post('user/randomquote','App\Api\V1\Controllers\QuoteController@randomquote');
+		$api->post('user/randomquoteid','App\Api\V1\Controllers\QuoteController@randomquoteID');
 	});
 	// example of protected route
 	$api->get('protected', ['middleware' => ['api.auth'], function () {		
