@@ -55,12 +55,7 @@ class QuoteController extends Controller
         $source = sourcelist::all();
         $category = category::all();
         $array = array();
-        $id = -1;
-        foreach($quoted as $item){
-            if($item->name==$name->name){
-                $id = $item->id;
-            }
-        }
+        $id = $name->name;
         foreach($quotes as $item){
             if($item->quoted==$id){
                 $array[] = $item;
@@ -87,14 +82,8 @@ class QuoteController extends Controller
     }
     public function getQbynameID(Request $name){
         $quotes = quotes::all();
-        $quoted = quoted::all();
         $array = array();
-        $id = -1;
-        foreach($quoted as $item){
-            if($item->name==$name->name){
-                $id = $item->id;
-            }
-        }
+        $id = $name->name;
         foreach($quotes as $item){
             if($item->quoted==$id){
                 $array[] = $item;
@@ -108,12 +97,7 @@ class QuoteController extends Controller
         $sourcel = sourcelist::all();
         $category = category::all();
         $array = array();
-        $id = -1;
-        foreach($sourcel as $item){
-            if($item->name==$source->source){
-                $id = $item->id;
-            }
-        }
+        $id = $source->source;
         foreach($quotes as $item){
             if($item->source==$id){
                 $array[] = $item;
@@ -140,14 +124,8 @@ class QuoteController extends Controller
     }
     public function getBySourceID(Request $source){
         $quotes = quotes::all();
-        $sourcel = sourcelist::all();
         $array = array();
-        $id = -1;
-        foreach($sourcel as $item){
-            if($item->name==$source->source){
-                $id = $item->id;
-            }
-        }
+        $id = $source->source;
         foreach($quotes as $item){
             if($item->source==$id){
                 $array[] = $item;
@@ -161,12 +139,7 @@ class QuoteController extends Controller
         $source = sourcelist::all();
         $categoryl = category::all();
         $array = array();
-        $id = -1;
-        foreach($categoryl as $item){
-            if($item->name==$category->category){
-                $id = $item->id;
-            }
-        }
+        $id = $category->category;
         foreach($quotes as $item){
             if($item->category==$id){
                 $array[] = $item;
@@ -193,14 +166,8 @@ class QuoteController extends Controller
     }
     public function getQbycategoryID(Request $category){
         $quotes = quotes::all();
-        $categoryl = category::all();
         $array = array();
-        $id = -1;
-        foreach($categoryl as $item){
-            if($item->name==$category->category){
-                $id = $item->id;
-            }
-        }
+        $id = $category->category;
         foreach($quotes as $item){
             if($item->category==$id){
                 $array[] = $item;
