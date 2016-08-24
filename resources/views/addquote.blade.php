@@ -7,7 +7,7 @@
             <div class="panel-body">
                 <table style="color: #FFFFFF;border-color: #008779;background-color: #008779;border-collapse: separate;border-spacing: 2px" border="1">
                     <tr>
-                        <td style="color: #FFFFFF;border-color: #008779;background-color: #008779;font-weight: bold">ID</td>
+                        <td style="color: #FFFFFF;border-color: #008779;background-color: #008779;font-weight: bold">ID({{count($quoted)}})</td>
                         <td style="color: #FFFFFF;border-color: #008779;background-color: #008779;font-weight: bold">List of Quoted</td>
                     </tr>
                     @foreach($quoted as $item)
@@ -24,7 +24,7 @@
                 <p/>
                 <table style="color: #FFFFFF;border-color: #008779;background-color: #008779;border-collapse: separate;border-spacing: 2px" border="1">
                     <tr>
-                        <td style="color: #FFFFFF;border-color: #008779;background-color: #008779;font-weight: bold">ID</td>
+                        <td style="color: #FFFFFF;border-color: #008779;background-color: #008779;font-weight: bold">ID({{count($quotes)}})</td>
                         <td style="color: #FFFFFF;border-color: #008779;background-color: #008779;font-weight: bold">Quote</td>
                         <td style="color: #FFFFFF;border-color: #008779;background-color: #008779;font-weight: bold">Quoted</td>
                         <td style="color: #FFFFFF;border-color: #008779;background-color: #008779;font-weight: bold">Category</td>
