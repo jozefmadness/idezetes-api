@@ -19,9 +19,11 @@ class QuoteController extends Controller
 
     public function getVersion(){
         $flags = flag::all();
+        $array=array();
         foreach($flags as $flag){
             if($flag->name=='version'){
-                return $flag->value;
+                $array[] = $flag->value;
+                return $array;
             }
         }
     }
