@@ -10,7 +10,6 @@
                     <td style="color: #FFFFFF;border-color: #008779;background-color: #008779;font-weight: bold">Quote</td>
                     <td style="color: #FFFFFF;border-color: #008779;background-color: #008779;font-weight: bold">Quoted</td>
                     <td style="color: #FFFFFF;border-color: #008779;background-color: #008779;font-weight: bold">Category</td>
-                    <td style="color: #FFFFFF;border-color: #008779;background-color: #008779;font-weight: bold">Source</td>
                 </tr>
                 @foreach($quotes as $item)
                     <tr>
