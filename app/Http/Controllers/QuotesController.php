@@ -30,7 +30,7 @@ class QuotesController extends Controller
         $data->name = $request->name;
         $data->save();
         $msg = "sikeresen hozzáadva";
-        return redirect('addquote')->with(['msg' => $msg]);
+        return redirect('quotemanage')->with(['msg' => $msg]);
     }
     public function addquotes(Request $request)
     {
@@ -41,5 +41,5 @@ class QuotesController extends Controller
         $data->source = $request->source;
         $data->save();
         $msg = "sikeresen hozzáadva";
-        return redirect('addquote')->with(['msg' => $msg]);}
+        return redirect('quotemanage')->with(['msg' => $msg]);}
 }
