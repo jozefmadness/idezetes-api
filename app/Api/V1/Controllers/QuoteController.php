@@ -8,6 +8,7 @@ use Config;
 use App\quoted;
 use App\quotes;
 use App\category;
+use App\flag;
 use Dingo\Api\Routing\Helpers;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -16,6 +17,10 @@ class QuoteController extends Controller
 {
     use Helpers;
 
+    public function getVersion(){
+        $version = flag::getRow()->name();
+        return $version;
+    }
     public function randomquote(){
         $quotes = quotes::all();
         $quoted = quoted::all();

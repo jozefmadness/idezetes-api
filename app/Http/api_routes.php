@@ -9,6 +9,7 @@ $api->version('v1', function ($api) {
 	$api->post('auth/recovery', 'App\Api\V1\Controllers\AuthController@recovery');
 	$api->post('auth/reset', 'App\Api\V1\Controllers\AuthController@reset');
 
+	$api->post('user/getversion','App\Api\V1\Controllers\QuoteController@getVersion');
 	$api->post('user/getquotename', 'App\Api\V1\Controllers\QuoteController@getQbyname');
 	$api->post('user/getquotecategory', 'App\Api\V1\Controllers\QuoteController@getQbycategory');
 	$api->post('user/getquotenameid', 'App\Api\V1\Controllers\QuoteController@getQbynameID');
