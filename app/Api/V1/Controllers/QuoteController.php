@@ -18,8 +18,8 @@ class QuoteController extends Controller
     use Helpers;
 
     public function getVersion(){
-        $version = flag::getRow()->name();
-        return $version;
+        $version = flag::where('name','version')->get()->toArray();
+        return $version->value;
     }
     public function randomquote(){
         $quotes = quotes::all();
