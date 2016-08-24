@@ -25,11 +25,6 @@
                                 <td style="color: #FFFFFF;border-color: #008779;background-color: #008779">{{$qitem->name}}</td>
                             @endif
                         @endforeach
-                        @foreach($source as $qitem)
-                            @if($item->source==$qitem->id)
-                                <td style="color: #FFFFFF;border-color: #008779;background-color: #008779">{{$qitem->name}}</td>
-                            @endif
-                        @endforeach
                     </tr>
                 @endforeach
             </table>
