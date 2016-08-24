@@ -8,7 +8,6 @@ use Config;
 use App\quoted;
 use App\quotes;
 use App\category;
-use App\sourcelist;
 use Dingo\Api\Routing\Helpers;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -20,7 +19,6 @@ class QuoteController extends Controller
     public function randomquote(){
         $quotes = quotes::all();
         $quoted = quoted::all();
-        $source = sourcelist::all();
         $category = category::all();
         $n = count($quotes);
         $quote = $quotes[rand(0,$n-1)];
@@ -32,11 +30,6 @@ class QuoteController extends Controller
         foreach($category as $item){
             if($item->id==$quote->category){
                 $quote->category=$item->name;
-            }
-        }
-        foreach($source as $item){
-            if($item->id==$quote->source){
-                $quote->source=$item->name;
             }
         }
         $array[] = $quote;
@@ -52,7 +45,6 @@ class QuoteController extends Controller
     public function getQbyname(Request $name){
         $quotes = quotes::all();
         $quoted = quoted::all();
-        $source = sourcelist::all();
         $category = category::all();
         $array = array();
         $id = $name->name;
@@ -70,11 +62,6 @@ class QuoteController extends Controller
             foreach($category as $qitem){
                 if($qitem->id==$item->category){
                     $item->category=$qitem->name;
-                }
-            }
-            foreach($source as $qitem){
-                if($qitem->id==$item->source){
-                    $item->source=$qitem->name;
                 }
             }
         }
@@ -91,52 +78,9 @@ class QuoteController extends Controller
         }
         return $array;
     }
-    public function getBySource(Request $source){
-        $quotes = quotes::all();
-        $quoted = quoted::all();
-        $sourcel = sourcelist::all();
-        $category = category::all();
-        $array = array();
-        $id = $source->source;
-        foreach($quotes as $item){
-            if($item->source==$id){
-                $array[] = $item;
-            }
-        }
-        foreach($array as $item){
-            foreach($quoted as $qitem){
-                if($qitem->id==$item->quoted){
-                    $item->quoted=$qitem->name;
-                }
-            }
-            foreach($category as $qitem){
-                if($qitem->id==$item->category){
-                    $item->category=$qitem->name;
-                }
-            }
-            foreach($sourcel as $qitem){
-                if($qitem->id==$item->source){
-                    $item->source=$qitem->name;
-                }
-            }
-        }
-        return $array;
-    }
-    public function getBySourceID(Request $source){
-        $quotes = quotes::all();
-        $array = array();
-        $id = $source->source;
-        foreach($quotes as $item){
-            if($item->source==$id){
-                $array[] = $item;
-            }
-        }
-        return $array;
-    }
     public function getQbycategory(Request $category){
         $quotes = quotes::all();
         $quoted = quoted::all();
-        $source = sourcelist::all();
         $categoryl = category::all();
         $array = array();
         $id = $category->category;
@@ -154,11 +98,6 @@ class QuoteController extends Controller
             foreach($categoryl as $qitem){
                 if($qitem->id==$item->category){
                     $item->category=$qitem->name;
-                }
-            }
-            foreach($source as $qitem){
-                if($qitem->id==$item->source){
-                    $item->source=$qitem->name;
                 }
             }
         }
@@ -181,7 +120,6 @@ class QuoteController extends Controller
     public function getAllQuote(){
         $quoted = quoted::all();
         $quotes = quotes::all();
-        $source = sourcelist::all();
         $category = category::all();
         $array = array();
         foreach($quotes as $item){
@@ -195,11 +133,6 @@ class QuoteController extends Controller
                     $item->category=$qitem->name;
                 }
             }
-            foreach($source as $qitem){
-                if($qitem->id==$item->source){
-                    $item->source=$qitem->name;
-                }
-            }
             $array[] = $item;
         }
         return $array;
@@ -209,9 +142,6 @@ class QuoteController extends Controller
     }
     public function getAllCategory(){
         return $category = category::all()->toArray();
-    }
-    public function getAllSource(){
-        return $source = sourcelist::all()->toArray();
     }
     public function addQuote(Request $nquote){
         $new = new quotes();

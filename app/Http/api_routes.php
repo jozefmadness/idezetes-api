@@ -9,23 +9,18 @@ $api->version('v1', function ($api) {
 	$api->post('auth/recovery', 'App\Api\V1\Controllers\AuthController@recovery');
 	$api->post('auth/reset', 'App\Api\V1\Controllers\AuthController@reset');
 
-	$api->group(['middleware' =>['api.auth']], function ($api) {
-		$api->post('user/getquotename', 'App\Api\V1\Controllers\QuoteController@getQbyname');
-		$api->post('user/getquotecategory', 'App\Api\V1\Controllers\QuoteController@getQbycategory');
-		$api->post('user/getbysource','App\Api\V1\Controllers\QuoteController@getBySource');
-		$api->post('user/getquotenameid', 'App\Api\V1\Controllers\QuoteController@getQbynameID');
-		$api->post('user/getquotecategoryid', 'App\Api\V1\Controllers\QuoteController@getQbycategoryID');
-		$api->post('user/getbysourceid','App\Api\V1\Controllers\QuoteController@getBySourceID');
-		$api->post('user/addquoted', 'App\Api\V1\Controllers\QuoteController@AddQuoted');
-		$api->post('user/addquote', 'App\Api\V1\Controllers\QuoteController@AddQuote');
-		$api->post('user/getquoted','App\Api\V1\Controllers\QuoteController@getQuoted');
-		$api->post('user/getallquote','App\Api\V1\Controllers\QuoteController@getAllQuote');
-		$api->post('user/getallquoted','App\Api\V1\Controllers\QuoteController@getAllQuoted');
-		$api->post('user/getallsource','App\Api\V1\Controllers\QuoteController@getAllSource');
-		$api->post('user/getallcategory','App\Api\V1\Controllers\QuoteController@getAllCategory');
-		$api->post('user/randomquote','App\Api\V1\Controllers\QuoteController@randomquote');
-		$api->post('user/randomquoteid','App\Api\V1\Controllers\QuoteController@randomquoteID');
-	});
+	$api->post('user/getquotename', 'App\Api\V1\Controllers\QuoteController@getQbyname');
+	$api->post('user/getquotecategory', 'App\Api\V1\Controllers\QuoteController@getQbycategory');
+	$api->post('user/getquotenameid', 'App\Api\V1\Controllers\QuoteController@getQbynameID');
+	$api->post('user/getquotecategoryid', 'App\Api\V1\Controllers\QuoteController@getQbycategoryID');
+	$api->post('user/addquoted', 'App\Api\V1\Controllers\QuoteController@AddQuoted');
+	$api->post('user/addquote', 'App\Api\V1\Controllers\QuoteController@AddQuote');
+	$api->post('user/getquoted','App\Api\V1\Controllers\QuoteController@getQuoted');
+	$api->post('user/getallquote','App\Api\V1\Controllers\QuoteController@getAllQuote');
+	$api->post('user/getallquoted','App\Api\V1\Controllers\QuoteController@getAllQuoted');
+	$api->post('user/getallcategory','App\Api\V1\Controllers\QuoteController@getAllCategory');
+	$api->post('user/randomquote','App\Api\V1\Controllers\QuoteController@randomquote');
+	$api->post('user/randomquoteid','App\Api\V1\Controllers\QuoteController@randomquoteID');
 	// example of protected route
 	$api->get('protected', ['middleware' => ['api.auth'], function () {		
 		return \App\User::all();
