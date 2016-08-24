@@ -22,7 +22,7 @@ class QuoteController extends Controller
         $array=array();
         foreach($flags as $flag){
             if($flag->name=='version'){
-                $array[] = $flag->value;
+                $array[] = $flag;
                 return $array;
             }
         }
