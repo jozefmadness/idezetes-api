@@ -27,6 +27,29 @@ class QuoteController extends Controller
             }
         }
     }
+    public function randomxquote(){
+        $quotes = quotes::all();
+        $quoted = quoted::all();
+        $category = category::all();
+        $n = count($quotes);
+        $array = array();
+        for($i = 1; $i <= 100; $i++){
+            $array[] = $quotes[rand(($n-1)/100*$i-1,($n-1)/100*$i)];
+        }
+        foreach($array as $item){
+            foreach($quoted as $qitem){
+                if($qitem->id==$item->quoted){
+                    $item->quoted=$qitem->name;
+                }
+            }
+            foreach($category as $qitem){
+                if($qitem->id==$item->category){
+                    $item->category=$qitem->name;
+                }
+            }
+        }
+        return $array;
+    }
     public function randomquote(){
         $quotes = quotes::all();
         $quoted = quoted::all();

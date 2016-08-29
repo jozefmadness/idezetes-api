@@ -21,6 +21,7 @@ $api->version('v1', function ($api) {
 	$api->post('user/getallquoted','App\Api\V1\Controllers\QuoteController@getAllQuoted');
 	$api->post('user/getallcategory','App\Api\V1\Controllers\QuoteController@getAllCategory');
 	$api->post('user/randomquote','App\Api\V1\Controllers\QuoteController@randomquote');
+	$api->post('user/randomxquote','App\Api\V1\Controllers\QuoteController@randomxquote');
 	$api->post('user/randomquoteid','App\Api\V1\Controllers\QuoteController@randomquoteID');
 	// example of protected route
 	$api->get('protected', ['middleware' => ['api.auth'], function () {		
