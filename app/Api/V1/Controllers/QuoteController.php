@@ -34,7 +34,7 @@ class QuoteController extends Controller
         $n = count($quotes);
         $array = array();
         for($i = 1; $i <= 100; $i++){
-            $array[] = $quotes[rand(($n-1)/100*$i-1,($n-1)/100*$i)];
+            $array[] = $quotes[rand(($n)/100*($i-1),($n-1)/100*$i)];
         }
         foreach($array as $item){
             foreach($quoted as $qitem){
